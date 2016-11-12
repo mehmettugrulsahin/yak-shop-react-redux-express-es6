@@ -1,6 +1,6 @@
 {
   "name": "yak-shop-react-redux-express-es6",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Yak Shop",
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
