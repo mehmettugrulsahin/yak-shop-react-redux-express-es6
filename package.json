@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
     "clean": "rimraf dist",
-    "start": "node devServer.js",
+    "start": "node ./src/server/devServer.js",
     "tunnel": "browser-sync start --proxy localhost:8080 --tunnel mehmettugrulsahin"
   },
   "keywords": [
