@@ -15,7 +15,7 @@ module.exports = ({
     webpackHotMiddleware
 }) => {    
     const { templateEngine } = serverConfig;
-    const compiler = webpack(webpackConfig);
+    const compiler = webpack(webpackConfig);    
 
     let SERVER_PORT;
     
@@ -48,7 +48,8 @@ module.exports = ({
     };
 
     const setBodyParsingMiddleware = (server) => {
-        server.use(bodyParser.urlencoded({ extended: true }));
+        server.use(bodyParser.json());
+        server.use(bodyParser.urlencoded({ extended: true })); 
     };
 
     const setCorsMiddleware = (server) => {

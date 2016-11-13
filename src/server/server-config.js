@@ -15,6 +15,7 @@ module.exports = () => {
 
     const httpResponses = Object.freeze({
         ok: 200,
+        resetContent: 205,
         internalServerError: 500
     });
 
@@ -40,6 +41,7 @@ module.exports = () => {
     const routes = Object.freeze({
         home: '/',
         webShop: '/web-shop',
+        yakShopLoad: '/yak-shop/load',
         favicon: '/favicon.ico'
     });
 

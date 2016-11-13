@@ -8,6 +8,7 @@ const errorMiddleware = require('./server/webserver/error-middleware/error-middl
 
 const homeRoute = require('./server/webserver/routes/home-route');
 const webShopRoute = require('./server/webserver/routes/web-shop-route');
+const yakShopLoadRoute = require('./server/webserver/routes/yak-shop-load-route');
 
 const server = require('./server/webserver/server');
 
@@ -32,7 +33,8 @@ const webServerModules = {
     corsMiddleware,
     errorMiddleware,    
     homeRoute,
-    webShopRoute,    
+    webShopRoute,
+    yakShopLoadRoute,
     server,
     webpackConfig
 };

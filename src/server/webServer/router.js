@@ -1,6 +1,7 @@
 module.exports = ({
     homeRoute,
     webShopRoute,
+    yakShopLoadRoute,
     express,
     serverConfig
 }) => {
@@ -17,6 +18,7 @@ module.exports = ({
 
             router.get(routes.home, homeRoute);
             router.get(routes.webShop, webShopRoute);
+            router.post(routes.yakShopLoad, yakShopLoadRoute);
 
             server.use(router);
         }
