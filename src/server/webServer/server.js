@@ -1,5 +1,5 @@
 module.exports = ({
-    config,
+    serverConfig,
     path,
     consolidate,
     bodyParser,
@@ -9,13 +9,13 @@ module.exports = ({
     corsMiddleware,
     logger,
     expressWinston,
-    webpackDevConfig,
+    webpackConfig,
     webpack,
     webpackDevMiddleware,
     webpackHotMiddleware
 }) => {    
-    const { templateEngine } = config;
-    const compiler = webpack(webpackDevConfig);
+    const { templateEngine } = serverConfig;
+    const compiler = webpack(webpackConfig);
 
     let SERVER_PORT;
     
@@ -27,7 +27,7 @@ module.exports = ({
     const setWebpackDevMiddleware = (server) => {
         server.use(webpackDevMiddleware(compiler, {
           noInfo: true,
-          publicPath: webpackDevConfig.output.publicPath
+          publicPath: webpackConfig.output.publicPath
         }));
     };
 

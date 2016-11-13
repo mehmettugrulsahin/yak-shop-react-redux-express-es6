@@ -5,8 +5,7 @@
   "scripts": {
     "test": "mocha src/**/*.spec.js --compilers js:babel-core/register",
     "lint": "eslint src",
-    "start:dev": "env $(cat development.env) node src/main.js",
-    "dev": "nodemon --exec \"npm run test && npm run lint && npm run start:dev\""
+    "start": "nodemon --exec \"npm run test && npm run lint && npm run env $(cat node.env) node src/main.js\""
   },
   "keywords": [
     "react",

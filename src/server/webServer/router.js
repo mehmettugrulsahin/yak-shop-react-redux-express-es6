@@ -2,9 +2,9 @@ module.exports = ({
     homeRoute,
     webShopRoute,
     express,
-    config
+    serverConfig
 }) => {
-    const { routes } = config;
+    const { routes } = serverConfig;
 
     return {
         setupRoutes: (server) => {

@@ -1,6 +1,6 @@
 const deppie = require('deppie');
 
-const config = require('./server/config');
+const serverConfig = require('./server/server-config');
 const router = require('./server/webserver/router');
 
 const corsMiddleware = require('./server/webserver/cors-middleware/cors-middleware');
@@ -11,7 +11,7 @@ const webShopRoute = require('./server/webserver/routes/web-shop-route');
 
 const server = require('./server/webserver/server');
 
-const webpackDevConfig = require('./webpack.config.dev');
+const webpackConfig = require('./webpack-config');
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -27,14 +27,14 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const webServerModules = {
-    config,
+    serverConfig,
     router,
     corsMiddleware,
     errorMiddleware,    
     homeRoute,
     webShopRoute,    
     server,
-    webpackDevConfig
+    webpackConfig
 };
 
 const webShopModules = require('./server/webShop/web-shop-modules');
