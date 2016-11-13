@@ -1,6 +1,6 @@
 {
   "name": "yak-shop-react-redux-express-es6",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "Yak Shop",
   "scripts": {
     "test": "mocha src/**/*.spec.js --compilers js:babel-core/register",
