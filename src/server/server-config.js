@@ -51,6 +51,10 @@ module.exports = () => {
         favicon: '/favicon.ico'
     });
 
+    const logMessages = Object.freeze({
+        initializeYaks: 'Yaks initialized !'
+    });
+
     return Object.freeze({
         httpResponses,
         errorMessages,
