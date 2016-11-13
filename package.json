@@ -1,12 +1,11 @@
 {
   "name": "yak-shop-react-redux-express-es6",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "Yak Shop",
   "scripts": {
     "test": "mocha src/**/*.spec.js --compilers js:babel-core/register",
     "lint": "eslint src",
-    "start:dev": "env $(cat development.env) node src/main.js",
-    "dev": "nodemon --exec \"npm run test && npm run lint && npm run start:dev\""
+    "start": "nodemon --exec \"npm run test && npm run lint && npm run env $(cat node.env) node src/main.js\""
   },
   "keywords": [
     "react",

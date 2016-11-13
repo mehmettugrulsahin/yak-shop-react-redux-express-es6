@@ -1,6 +1,6 @@
 const deppie = require('deppie');
 
-const config = require('./server/config');
+const serverConfig = require('./server/server-config');
 const router = require('./server/webserver/router');
 
 const corsMiddleware = require('./server/webserver/cors-middleware/cors-middleware');
@@ -8,10 +8,14 @@ const errorMiddleware = require('./server/webserver/error-middleware/error-middl
 
 const homeRoute = require('./server/webserver/routes/home-route');
 const webShopRoute = require('./server/webserver/routes/web-shop-route');
+const yakShopLoadRoute = require('./server/webserver/routes/yak-shop-load-route');
+const yakShopStockRoute = require('./server/webserver/routes/yak-shop-stock-route');
+const yakShopHerdRoute = require('./server/webserver/routes/yak-shop-herd-route');
+const yakShopOrderRoute = require('./server/webserver/routes/yak-shop-order-route');
 
 const server = require('./server/webserver/server');
 
-const webpackDevConfig = require('./webpack.config.dev');
+const webpackConfig = require('./webpack-config');
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -27,14 +31,18 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const webServerModules = {
-    config,
+    serverConfig,
     router,
     corsMiddleware,
     errorMiddleware,    
     homeRoute,
-    webShopRoute,    
+    webShopRoute,
+    yakShopLoadRoute,
+    yakShopStockRoute,
+    yakShopHerdRoute,
+    yakShopOrderRoute,
     server,
-    webpackDevConfig
+    webpackConfig
 };
 
 const webShopModules = require('./server/webShop/web-shop-modules');

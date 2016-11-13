@@ -1,10 +1,14 @@
 module.exports = ({
     homeRoute,
     webShopRoute,
+    yakShopLoadRoute,
+    yakShopStockRoute,
+    yakShopHerdRoute,
+    yakShopOrderRoute,
     express,
-    config
+    serverConfig
 }) => {
-    const { routes } = config;
+    const { routes } = serverConfig;
 
     return {
         setupRoutes: (server) => {
@@ -16,7 +20,13 @@ module.exports = ({
             });
 
             router.get(routes.home, homeRoute);
+
             router.get(routes.webShop, webShopRoute);
+
+            router.post(routes.yakShopLoad, yakShopLoadRoute);
+            router.get(routes.yakShopStock, yakShopStockRoute);
+            router.get(routes.yakShopHerd, yakShopHerdRoute);
+            router.post(routes.yakShopOrder, yakShopOrderRoute);
 
             server.use(router);
         }
