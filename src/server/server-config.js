@@ -15,7 +15,10 @@ module.exports = () => {
 
     const httpResponses = Object.freeze({
         ok: 200,
+        created: 201,
         resetContent: 205,
+        partialContent: 206,
+        notFound: 404,
         internalServerError: 500
     });
 
@@ -42,6 +45,9 @@ module.exports = () => {
         home: '/',
         webShop: '/web-shop',
         yakShopLoad: '/yak-shop/load',
+        yakShopStock: '/yak-shop/stock/:day',
+        yakShopHerd: '/yak-shop/herd/:day',
+        yakShopOrder: '/yak-shop/order/:day',
         favicon: '/favicon.ico'
     });
 

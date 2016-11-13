@@ -9,6 +9,9 @@ const errorMiddleware = require('./server/webserver/error-middleware/error-middl
 const homeRoute = require('./server/webserver/routes/home-route');
 const webShopRoute = require('./server/webserver/routes/web-shop-route');
 const yakShopLoadRoute = require('./server/webserver/routes/yak-shop-load-route');
+const yakShopStockRoute = require('./server/webserver/routes/yak-shop-stock-route');
+const yakShopHerdRoute = require('./server/webserver/routes/yak-shop-herd-route');
+const yakShopOrderRoute = require('./server/webserver/routes/yak-shop-order-route');
 
 const server = require('./server/webserver/server');
 
@@ -35,6 +38,9 @@ const webServerModules = {
     homeRoute,
     webShopRoute,
     yakShopLoadRoute,
+    yakShopStockRoute,
+    yakShopHerdRoute,
+    yakShopOrderRoute,
     server,
     webpackConfig
 };
