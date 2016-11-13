@@ -1,153 +1,163 @@
-<div>
-    <h1>
-        Welcome
-    </h1>    
-</div>
-<div>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Yak Shop</title>
+    <link href="http://yarnandknitting.com/wp-content/uploads/2014/09/Transparent-logo1.jpg" rel="shortcut icon" type="image/jpg">
+  </head>
+  <body>
     <div>
-        <h2>
-            What is this?
-        </h2>
-        <h3>The YakShop</h3>
-        <p>
-            Your new customer is a Yak shepherd living on the tundra herding a group of Yaks. Every once in a while he gets customers who come in to buy Yak wool or milk from him. However he decides to open up a shop on the internet so
-            that he can expand his horizon and actually sell his products outside of his regular clientele. He has decided to hire you as
-            a developer for his new webshop. You’ve had a few meetings with him and together you’ve thought up a number of user stories so that you can both have a clear focus and don’t spend time on.... well, essentially shaving yaks ;-)
-        </p>
-        <p>
-            From research on the internet you of course know that Yaks like humans also age, and with age they give less milk until they  nally die of old age. Contrary to humans, a standard Yak year consists of 100 days.
-        </p>
-        <p>
-            The shepherd currently has Yaks who all stem from the “LabYaks” tribe. This tribe is known for its consistency in wool quality, milk taste and production rate of said goods.
-            The shepherd gave you the following facts about LabYaks:
-        </p>
-        <ul>
-            <li>
-                Each day a LabYak produces 50-D*0.03 liters of milk (D =age in days).
-            </li>
-            <li>
-                At most every 8+D*0.01 days you can again shave a LabYak (D =age in days).
-            </li>
-            <li>
-                A yak can be  rst shaven when he is 1 year.            
-            </li>
-            <li>
-                A LabYak dies the day he turns 10.                
-            </li>
-        </ul>
-        <h3>Assumptions</h3>
-        <ul>
-            <li>
-                The moment you open up the YakShop webshop will be day 0, and all yaks are eligible to be shaven, as the two of you spent quite a lot of time setting up this shop and the shepherd wasn’t able to attend much to his herd.                
-            </li>
-            <li>
-                Each morning the shepherd milks and shaves his yaks. Yaks which aren’t eligible to be shaven on the exact day, cannot be shaved today. Example: a yak who started out on day 0 as 4 years, can be shaven again during day 13.
-            </li>
-            <li>
-                When querying your app and placing orders, the elapsed time in days (T) is used. A value of for instance 13 means that day 12 has elapsed and we’re at midnight day 13.
-            </li>
-        </ul>                
+        <h1>
+            Welcome
+        </h1>    
     </div>
     <div>
-        <h2>
-            What technologies are used?
-        </h2>
-        <ul>
-            <li>
-                <h3>
-                    Client side
-                </h3>
-                <ul>
-                    <li>
-                        <div class="row"><a href="https://facebook.github.io/react/">React</a></div>
-                        <div class="row">A JavaScript Library for building user interfaces</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="http://redux.js.org/">Redux</a></div>
-                        <div class="row">Redux is a predictable state container for JavaScript apps</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="http://stylus-lang.com/">Stylus</a></div>
-                        <div class="row">Expressive, robus, dynamic css</div>
-                    </li>
-                </ul>            
-            </li>
-            <li>
-                <h3>Server side</h3>
-                <ul>
-                    <li>
-                        <div class="row"><a href="https://nodejs.org/en/">Node</a></div>
-                        <div class="row">Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine</div>
-                    </li>        
-                    <li>
-                        <div class="row"><a href="https://github.com/expressjs/">Express</a></div>
-                        <div class="row">Express.js: the fast, unopinionated, minimalist web framework for node</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="https://github.com/Gaafar/deppie">Deppie</a></div>
-                        <div class="row">The simple, elegant Dependency Injection framework for javascript</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="http://handlebarsjs.com/">Handlebars</a></div>
-                        <div class="row">Handlebars.js is a templating engine which is an extension to the Mustache templating language</div>
-                        <div class="row"><a href="https://github.com/winstonjs/winston">Winston</a></div>
-                        <div class="row">A multi-transport async logging library for node.js</div>            
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>Unit testing</h3>
-                <ul>
-                    <li>
-                        <div class="row"><a href="https://mochajs.org/">Mocha</a></div>
-                        <div class="row">Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="http://chaijs.com/">Chai</a></div>
-                        <div class="row">Chai is a BDD / TDD assertion library for node and the browser</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="http://sinonjs.org/">Sinon</a></div>
-                        <div class="row">Standalone test spies, stubs and mocks for JavaScript</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="https://github.com/gotwarlost/istanbul">Istanbul</a></div>
-                        <div class="row">Code coverage tool</div>
-                    </li>                
-                </ul>
-            </li>
-            <li>
-                <h3>Other</h3>
-                <ul>
-                    <li>
-                        <div class="row"><a href="http://webpack.github.io/docs/">Webpack</a></div>
-                        <div class="row">Module bundler</div>
-                    </li>
-                    <li>
-                        <div class="row"><a href="https://babeljs.io/">Babel</a></div>
-                        <div class="row">Babel is a JavaScript compiler</div>            
-                    </li>
-                </ul>
-            </li>        
-        </ul>
+        <div>
+            <h2>
+                What is this?
+            </h2>
+            <h3>The YakShop</h3>
+            <p>
+                Your new customer is a Yak shepherd living on the tundra herding a group of Yaks. Every once in a while he gets customers who come in to buy Yak wool or milk from him. However he decides to open up a shop on the internet so
+                that he can expand his horizon and actually sell his products outside of his regular clientele. He has decided to hire you as
+                a developer for his new webshop. You’ve had a few meetings with him and together you’ve thought up a number of user stories so that you can both have a clear focus and don’t spend time on.... well, essentially shaving yaks ;-)
+            </p>
+            <p>
+                From research on the internet you of course know that Yaks like humans also age, and with age they give less milk until they  nally die of old age. Contrary to humans, a standard Yak year consists of 100 days.
+            </p>
+            <p>
+                The shepherd currently has Yaks who all stem from the “LabYaks” tribe. This tribe is known for its consistency in wool quality, milk taste and production rate of said goods.
+                The shepherd gave you the following facts about LabYaks:
+            </p>
+            <ul>
+                <li>
+                    Each day a LabYak produces 50-D*0.03 liters of milk (D =age in days).
+                </li>
+                <li>
+                    At most every 8+D*0.01 days you can again shave a LabYak (D =age in days).
+                </li>
+                <li>
+                    A yak can be  rst shaven when he is 1 year.            
+                </li>
+                <li>
+                    A LabYak dies the day he turns 10.                
+                </li>
+            </ul>
+            <h3>Assumptions</h3>
+            <ul>
+                <li>
+                    The moment you open up the YakShop webshop will be day 0, and all yaks are eligible to be shaven, as the two of you spent quite a lot of time setting up this shop and the shepherd wasn’t able to attend much to his herd.                
+                </li>
+                <li>
+                    Each morning the shepherd milks and shaves his yaks. Yaks which aren’t eligible to be shaven on the exact day, cannot be shaved today. Example: a yak who started out on day 0 as 4 years, can be shaven again during day 13.
+                </li>
+                <li>
+                    When querying your app and placing orders, the elapsed time in days (T) is used. A value of for instance 13 means that day 12 has elapsed and we’re at midnight day 13.
+                </li>
+            </ul>                
+        </div>
+        <div>
+            <h2>
+                What technologies are used?
+            </h2>
+            <ul>
+                <li>
+                    <h3>
+                        Client side
+                    </h3>
+                    <ul>
+                        <li>
+                            <div class="row"><a href="https://facebook.github.io/react/">React</a></div>
+                            <div class="row">A JavaScript Library for building user interfaces</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="http://redux.js.org/">Redux</a></div>
+                            <div class="row">Redux is a predictable state container for JavaScript apps</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="http://stylus-lang.com/">Stylus</a></div>
+                            <div class="row">Expressive, robus, dynamic css</div>
+                        </li>
+                    </ul>            
+                </li>
+                <li>
+                    <h3>Server side</h3>
+                    <ul>
+                        <li>
+                            <div class="row"><a href="https://nodejs.org/en/">Node</a></div>
+                            <div class="row">Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine</div>
+                        </li>        
+                        <li>
+                            <div class="row"><a href="https://github.com/expressjs/">Express</a></div>
+                            <div class="row">Express.js: the fast, unopinionated, minimalist web framework for node</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="https://github.com/Gaafar/deppie">Deppie</a></div>
+                            <div class="row">The simple, elegant Dependency Injection framework for javascript</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="http://handlebarsjs.com/">Handlebars</a></div>
+                            <div class="row">Handlebars.js is a templating engine which is an extension to the Mustache templating language</div>
+                            <div class="row"><a href="https://github.com/winstonjs/winston">Winston</a></div>
+                            <div class="row">A multi-transport async logging library for node.js</div>            
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Unit testing</h3>
+                    <ul>
+                        <li>
+                            <div class="row"><a href="https://mochajs.org/">Mocha</a></div>
+                            <div class="row">Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="http://chaijs.com/">Chai</a></div>
+                            <div class="row">Chai is a BDD / TDD assertion library for node and the browser</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="http://sinonjs.org/">Sinon</a></div>
+                            <div class="row">Standalone test spies, stubs and mocks for JavaScript</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="https://github.com/gotwarlost/istanbul">Istanbul</a></div>
+                            <div class="row">Code coverage tool</div>
+                        </li>                
+                    </ul>
+                </li>
+                <li>
+                    <h3>Other</h3>
+                    <ul>
+                        <li>
+                            <div class="row"><a href="http://webpack.github.io/docs/">Webpack</a></div>
+                            <div class="row">Module bundler</div>
+                        </li>
+                        <li>
+                            <div class="row"><a href="https://babeljs.io/">Babel</a></div>
+                            <div class="row">Babel is a JavaScript compiler</div>            
+                        </li>
+                    </ul>
+                </li>        
+            </ul>
+        </div>
     </div>
-</div>
-<div>
     <div>
-        <h2>
-            What can I do ?
-        </h2>
-        <ul>
-            <li>
-                <div class="row"><a href="http://localhost:8080/web-shop">Check out the web shop</a></div>
-                <div class="row"><a href="https://github.com/mehmettugrulsahin/yak-shop-react-redux-express-es6">Check out the source code</a></div>
-            </li>
-        </ul>
-    </div>    
-</div>
-<div>
-    <h3>
-        Author
-    </h3>
-    <a href="https://github.com/mehmettugrulsahin">Mehmet Tuğrul Şahin</a>
-</div>
+        <div>
+            <h2>
+                What can I do ?
+            </h2>
+            <ul>
+                <li>
+                    <div class="row"><a href="http://localhost:8080/web-shop">Check out the web shop</a></div>
+                    <div class="row"><a href="https://github.com/mehmettugrulsahin/yak-shop-react-redux-express-es6">Check out the source code</a></div>
+                </li>
+            </ul>
+        </div>    
+    </div>
+    <div>
+        <h3>
+            Author
+        </h3>
+        <a href="https://github.com/mehmettugrulsahin">Mehmet Tuğrul Şahin</a>
+    </div>
+  </body>
+</html>
