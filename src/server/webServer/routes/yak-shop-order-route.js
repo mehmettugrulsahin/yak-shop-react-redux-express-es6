@@ -1,13 +1,16 @@
-module.exports = ({ serverConfig }) => {
+module.exports = ({ serverConfig, addOrder }) => {
     const { httpResponses } = serverConfig;
 
     return (req, res, next) => {
-        const sampleOrderResult = {
-            'day': req.params.day,
-            'body' : req.body
-        };
+        const day = req.params.day;
+        const order = req.body;
 
-        res.status(httpResponses.created).json(sampleOrderResult);
-        // res.status(httpResponses.partialContent);
+        return addOrder(day, order).then((realisedOrder) => {
+            if (realisedOrder.complete) {
+                res.status(httpResponses.created).json(realisedOrder.complete);
+            }
+
+            res.status(httpResponses.partialContent).json(realisedOrder.partial);        
+        });
     };
 };

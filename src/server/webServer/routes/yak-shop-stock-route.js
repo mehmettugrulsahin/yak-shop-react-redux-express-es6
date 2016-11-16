@@ -1,13 +1,11 @@
-module.exports = ({ serverConfig }) => {
+module.exports = ({ serverConfig, getStock }) => {
     const { httpResponses } = serverConfig;
 
     return (req, res, next) => {
-        const sampleStock = {
-            'day': req.params.day,
-            'milk' : 1104.48,
-            'skins' : 3 
-        };
+        const day = req.params.day;
 
-        res.status(httpResponses.ok).json(sampleStock);
+        return getStock(day).then((stock) => {
+            res.status(httpResponses.ok).json(stock);
+        }, next);
     };
 };

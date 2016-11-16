@@ -5,6 +5,16 @@ function checkEnvironment() {
         valid = false;
     }
 
+    if (typeof process.env.ORDERS_FILE !== 'string') {
+        console.error('Missing environment variable ORDERS_FILE.\n');
+        valid = false;
+    }
+
+    if (typeof process.env.YAKS_FILE !== 'string') {
+        console.error('Missing environment variable YAKS_FILE.\n');
+        valid = false;
+    }
+        
     if (!valid) {
         throw new Error('Missing environment variables.');
     }
@@ -51,12 +61,22 @@ module.exports = () => {
         favicon: '/favicon.ico'
     });
 
+    const data = Object.freeze({
+        orders: {
+            file: process.env.ORDERS_FILE
+        },
+        yaks: {
+            file: process.env.YAKS_FILE
+        }
+    });
+
     return Object.freeze({
         httpResponses,
         errorMessages,
         viewTypes,
         contentTypes,
         templateEngine,
-        routes
+        routes,
+        data
     });
 };

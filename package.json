@@ -3,9 +3,11 @@
   "version": "0.5.0",
   "description": "Yak Shop",
   "scripts": {
-    "test": "mocha src/**/*.spec.js --compilers js:babel-core/register",
+    "test": "mocha --opts ./mocha.opts",
     "lint": "eslint src",
-    "start": "nodemon --exec \"npm run test && npm run lint && npm run env $(cat node.env) node src/main.js\""
+    "start:env": "env $(cat node.env) node src/main.js",
+    "start:dev": "nodemon --exec \"npm run test && npm run lint && npm run start:env\"",
+    "start": "npm run test && npm run lint && npm run start:env"
   },
   "keywords": [
     "react",
