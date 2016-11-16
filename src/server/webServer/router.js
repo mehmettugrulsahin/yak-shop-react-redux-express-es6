@@ -26,6 +26,7 @@ module.exports = ({
             // load herd
             router.post(routes.yakShopLoad, yakShopLoadRoute);
             
+            // get stock on day T
             router.get(routes.yakShopStock, yakShopStockRoute);
             
             // get herd on day T

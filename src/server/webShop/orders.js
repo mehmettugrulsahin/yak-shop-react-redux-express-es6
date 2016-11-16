@@ -33,18 +33,8 @@ module.exports = ({ fs, serverConfig, logger }) => {
         });
     };
 
-    const getOrder = (id) => {
-
-    };
-
-    const setOrder = (id) => {
-
-    };
-
     return {
         getOrders,
-        setOrders,
-        getOrder,
-        setOrder
+        setOrders
     }
 };

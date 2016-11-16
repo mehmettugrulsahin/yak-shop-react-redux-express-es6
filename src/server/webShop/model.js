@@ -1,6 +1,8 @@
 module.exports = ({ orders, yaks, logger }) => {
     const ORDERS_RESULT = 0;
     const YAKS_RESULT = 1;
+    const TEN_YAK_YEARS_IN_DAYS = 1000;
+    const SKINS_ON_DAY_0 = 3;
 
     const collect = (day) => {
         logger.info('Loading data model');
@@ -41,9 +43,52 @@ module.exports = ({ orders, yaks, logger }) => {
         });
     };
 
+    const getStock = (day) => {
+        logger.info('Getting data model');
+        return Promise.all([
+                orders.getOrders(day),
+                yaks.getYaks(day)
+            ]).then(
+                (values) => {
+                    logger.info('Data model successfully loaded');
+
+                    const yaks = values[YAKS_RESULT];
+                    const orders = values[YAKS_RESULT];
+
+                    let milk = 0;
+                    let skins = SKINS_ON_DAY_0;
+
+                    yaks.forEach((yak) => {
+                        const ageInDays = yak.age * 100;                        
+
+                        if (ageInDays < TEN_YAK_YEARS_IN_DAYS) {
+                            for(i = 0; i < day; ++i) {
+                                milk += 50 - ((ageInDays + i) * 0.03);
+                            }
+                        }
+
+                        if (yak.age >= 1) {
+                            const shaveInterval = (8 + (ageInDays + i)) * 0.01;
+                            skins += parseInt(day / shaveInterval);
+                        }
+                    });
+
+                    return {
+                        milk,
+                        skins
+                    }
+                }, 
+                (error) => {
+                    logger.error('Error loading data model');
+                    logger.error(error);
+                    return Promise.reject(config.lookup.logging.error);
+                });
+    };
+
     return {
         collect,
         setHerd,
-        addOrder
+        addOrder,
+        getStock
     };
 };

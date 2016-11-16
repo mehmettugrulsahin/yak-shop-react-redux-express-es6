@@ -34,18 +34,8 @@ module.exports = ({ fs, serverConfig, logger }) => {
         });
     };
 
-    const getYak = (id) => {
-
-    };
-
-    const setYak = (id) => {
-
-    };
-
     return {
         getYaks,
-        setYaks,
-        getYak,
-        setYak
+        setYaks
     }
 };
