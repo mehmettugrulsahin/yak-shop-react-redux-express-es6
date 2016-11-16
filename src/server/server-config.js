@@ -5,6 +5,16 @@ function checkEnvironment() {
         valid = false;
     }
 
+    if (typeof process.env.ORDERS_FILE !== 'string') {
+        console.error('Missing environment variable ORDERS_FILE.\n');
+        valid = false;
+    }
+
+    if (typeof process.env.YAKS_FILE !== 'string') {
+        console.error('Missing environment variable YAKS_FILE.\n');
+        valid = false;
+    }
+        
     if (!valid) {
         throw new Error('Missing environment variables.');
     }

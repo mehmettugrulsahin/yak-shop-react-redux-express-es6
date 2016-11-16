@@ -25,7 +25,7 @@ module.exports = ({ fs, serverConfig, logger }) => {
 
     };
 
-    return () => {
+    return {
         getOrders,
         getOrder,
         setOrder

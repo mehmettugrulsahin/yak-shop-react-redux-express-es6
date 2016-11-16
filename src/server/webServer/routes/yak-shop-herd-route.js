@@ -1,30 +1,14 @@
-module.exports = ({ serverConfig }) => {
+module.exports = ({ serverConfig, getHerd }) => {
     const { httpResponses } = serverConfig;
 
     return (req, res, next) => {
-        const sampleHerd = {
-            'day': req.params.day,
-            'data': {
-                'herd': [
-                    {
-                        'name': 'Betty-1',
-                        'age': '4',
-                        'sex': 'f'
-                    },
-                    {
-                        'name': 'Betty-2',
-                        'age': '8',
-                        'sex': 'f'
-                    },
-                    {
-                        'name': 'Betty-3',
-                        'age': '9.5',
-                        'sex': 'f'
-                    }
-                ]
-            }
-        };
+        return getHerd.then((yaks) => {
+            const herd = {
+                'day': req.params.day,
+                yaks
+            };
 
-        res.status(httpResponses.ok).json(sampleHerd);
+            res.status(httpResponses.ok).json(herd);
+        }, next);
     };
 };
