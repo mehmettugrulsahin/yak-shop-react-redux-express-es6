@@ -1,16 +1,33 @@
-module.exports = ({ serverConfig, logger }) => {
-    const yaks = [
-        { name: 'yak-1', age: 1, sex:'f' },
-        { name: 'yak-2', age: 3, sex:'f' },
-        { name: 'yak-3', age: 4, sex:'f' }
-    ];
+module.exports = ({ fs, serverConfig, logger }) => {
+    const { data } = serverConfig;
 
     const getYaks = () => {
-        logger.info(initializeYaks.logMessages.initializeYaks);
-        return Promise.resolve(yaks);
+        return new Promise((resolve, reject) => {
+            fs.readFile(data.yaks.file, (err, data) => {
+                if (err) {
+                    logger.error('loading yaks file failed');
+                    logger.error(err);
+                    return reject();
+                }
+
+                const json = JSON.parse(data);
+                logger.info('loading yaks file succeeded');
+                return resolve(json);
+            });
+        });
     };
 
-    return {
-        getYaks
+    const getYak = (id) => {
+
     };
+
+    const setYak = (id) => {
+
+    };
+
+    return () => {
+        getYaks,
+        getYak,
+        setYak
+    }
 };

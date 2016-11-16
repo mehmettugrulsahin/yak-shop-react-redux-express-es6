@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "customer": "customer-1",
+        "milk": 100,
+        "skins": 1
+    },
+    {
+        "id": 2,
+        "customer": "customer-2",
+        "milk": 200,
+        "skins": 2
+    },
+    {
+        "id": 3,
+        "customer": "customer-3",
+        "milk": 300,
+        "skins": 3
+    }
+]

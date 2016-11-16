@@ -51,8 +51,13 @@ module.exports = () => {
         favicon: '/favicon.ico'
     });
 
-    const logMessages = Object.freeze({
-        initializeYaks: 'Yaks initialized !'
+    const data = Object.freeze({
+        orders: {
+            file: process.env.ORDERS_FILE
+        },
+        yaks: {
+            file: process.env.YAKS_FILE
+        }
     });
 
     return Object.freeze({
@@ -61,6 +66,7 @@ module.exports = () => {
         viewTypes,
         contentTypes,
         templateEngine,
-        routes
+        routes,
+        data
     });
 };
