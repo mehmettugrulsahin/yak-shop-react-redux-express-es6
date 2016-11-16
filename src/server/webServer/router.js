@@ -23,7 +23,7 @@ module.exports = ({
 
             router.get(routes.webShop, webShopRoute);
 
-            
+            // load herd
             router.post(routes.yakShopLoad, yakShopLoadRoute);
             
             router.get(routes.yakShopStock, yakShopStockRoute);

@@ -22,7 +22,14 @@ module.exports = ({ orders, yaks, logger }) => {
                 });
     };
     
+    const setHerd = (newYaks) => {
+        logger.info('Setting herd');
+        yaks.setYaks(newYaks);
+        logger.info('Herd successfully set');
+    };
+
     return {
-        collect
+        collect,
+        setHerd
     };
 };
