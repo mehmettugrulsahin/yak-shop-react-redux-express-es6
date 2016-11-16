@@ -32,14 +32,57 @@ module.exports = ({ orders, yaks, logger }) => {
 
     const addOrder = (day, order) => {            
         return orders.getOrders().then((newOrders) => {
-            logger.info('Adding order');
-            newOrders.push(order);
-            orders.setOrders(newOrders);
-            logger.info('Order successfully added');
+            return getStock(day).then((stock) => {
+                let realisedOrder;
 
-            return {
-                complete: order
-            };
+                logger.info('Adding order');
+
+                console.log('*** stock ***', stock, order);
+
+                if (stock.milk >= order.data.milk && stock.skins >= order.data.skins) {
+
+                    realisedOrder = {
+                        complete: {
+                            milk: order.data.milk,
+                            skins: order.data.skins
+                        }
+                    }
+
+                    console.log('realisedOrder complete', realisedOrder);
+
+                    newOrders.push({
+                        customer: order.customer,
+                        data: {
+                            milk: realisedOrder.complete.milk,
+                            skins: realisedOrder.complete.skins
+                        }
+                    });                
+                } else {
+                    
+                    realisedOrder = {
+                        partial: {
+                            milk: stock.milk < order.data.milk ? stock.milk : order.data.milk,
+                            skins: stock.skins < order.data.skins ? stock.skins : order.data.skins
+                        }
+                    }
+
+                    console.log('realisedOrder partial', realisedOrder);
+
+                    newOrders.push({
+                        customer: order.customer,
+                        data: {
+                            milk: realisedOrder.partial.milk,
+                            skins: realisedOrder.partial.skins
+                        }
+                    });
+                }
+                
+                orders.setOrders(newOrders);
+                logger.info('Order successfully added');
+
+                return realisedOrder;
+
+            });
         });
     };
 
@@ -52,8 +95,8 @@ module.exports = ({ orders, yaks, logger }) => {
                 (values) => {
                     logger.info('Data model successfully loaded');
 
+                    const orders = values[ORDERS_RESULT];
                     const yaks = values[YAKS_RESULT];
-                    const orders = values[YAKS_RESULT];
 
                     let milk = 0;
                     let skins = SKINS_ON_DAY_0;
@@ -69,8 +112,13 @@ module.exports = ({ orders, yaks, logger }) => {
 
                         if (yak.age >= 1) {
                             const shaveInterval = (8 + (ageInDays + i)) * 0.01;
-                            skins += parseInt(day / shaveInterval);
+                            skins += parseInt(day / shaveInterval);                            
                         }
+                    });
+
+                    orders.forEach((order) => {
+                        milk -= order.data.milk;
+                        skins -= order.data.skins;
                     });
 
                     return {

@@ -5,12 +5,12 @@ module.exports = ({ serverConfig, addOrder }) => {
         const day = req.params.day;
         const order = req.body;
 
-        return addOrder(day, order).then((newOrder) => {
-            if (newOrder.complete) {
-                res.status(httpResponses.created).json(newOrder.complete);
+        return addOrder(day, order).then((realisedOrder) => {
+            if (realisedOrder.complete) {
+                res.status(httpResponses.created).json(realisedOrder.complete);
             }
 
-            res.status(httpResponses.partialContent).json(newOrder.partial);        
+            res.status(httpResponses.partialContent).json(realisedOrder.partial);        
         });
     };
 };
