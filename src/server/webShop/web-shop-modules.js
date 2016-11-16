@@ -1,7 +1,7 @@
 const model = require('./model');
 
-const orders = require('./data/orders');
-const yaks = require('./data/yaks');
+const orders = require('./orders');
+const yaks = require('./yaks');
 
 const addOrder = require('./add-order');
 const getHerd = require('./get-herd');
