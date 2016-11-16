@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha --opts ./mocha.opts",
     "lint": "eslint src",
-    "start": "nodemon --exec \"npm run test && npm run lint && npm run env $(cat node.env) node src/main.js\""
+    "start:env": "env $(cat node.env) node src/main.js",
+    "start": "nodemon --exec \"npm run test && npm run lint && npm run start:env\""
   },
   "keywords": [
     "react",
