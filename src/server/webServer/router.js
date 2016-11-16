@@ -31,6 +31,7 @@ module.exports = ({
             // get herd on day T
             router.get(routes.yakShopHerd, yakShopHerdRoute);
             
+            // post orders on day T
             router.post(routes.yakShopOrder, yakShopOrderRoute);
 
             server.use(router);
