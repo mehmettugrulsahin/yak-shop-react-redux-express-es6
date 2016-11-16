@@ -2,13 +2,8 @@ module.exports = ({ serverConfig, getHerd }) => {
     const { httpResponses } = serverConfig;
 
     return (req, res, next) => {
-        return getHerd.then((yaks) => {
-            const herd = {
-                'day': req.params.day,
-                yaks
-            };
-
-            res.status(httpResponses.ok).json(herd);
+        return getHerd(req.params.day).then((yaks) => {
+            res.status(httpResponses.ok).json(yaks);
         }, next);
     };
 };
