@@ -1,7 +1,7 @@
 module.exports = ({ fs, serverConfig, logger }) => {
     const { data } = serverConfig;
 
-    const getYaks = () => {
+    const getYaks = (day) => {
         return new Promise((resolve, reject) => {
             fs.readFile(data.yaks.file, (err, data) => {
                 if (err) {
@@ -10,9 +10,14 @@ module.exports = ({ fs, serverConfig, logger }) => {
                     return reject();
                 }
 
-                const json = JSON.parse(data);
+                const yaks = JSON.parse(data);
+
+                yaks.forEach((yak) => {
+                    yak.age = yak.age + (day / 100);
+                });
+
                 logger.info('reading yaks file succeeded');
-                return resolve(json);
+                return resolve(yaks);
             });
         });
     };

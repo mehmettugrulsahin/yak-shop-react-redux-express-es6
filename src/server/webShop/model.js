@@ -2,11 +2,11 @@ module.exports = ({ orders, yaks, logger }) => {
     const ORDERS_RESULT = 0;
     const YAKS_RESULT = 1;
 
-    const collect = () => {
+    const collect = (day) => {
         logger.info('Loading data model');
         return Promise.all([
-                orders.getOrders(),
-                yaks.getYaks()
+                orders.getOrders(day),
+                yaks.getYaks(day)
             ]).then(
                 (values) => {
                     logger.info('Data model successfully loaded');
@@ -28,8 +28,22 @@ module.exports = ({ orders, yaks, logger }) => {
         logger.info('Herd successfully set');
     };
 
+    const addOrder = (day, order) => {            
+        return orders.getOrders().then((newOrders) => {
+            logger.info('Adding order');
+            newOrders.push(order);
+            orders.setOrders(newOrders);
+            logger.info('Order successfully added');
+
+            return {
+                complete: order
+            };
+        });
+    };
+
     return {
         collect,
-        setHerd
+        setHerd,
+        addOrder
     };
 };

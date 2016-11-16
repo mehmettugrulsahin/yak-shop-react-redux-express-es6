@@ -1,10 +1,6 @@
 module.exports = ({ model }) => {
     return (day) => {
-        return model.collect().then((data) => {
-            data.yaks.forEach((yak) => {
-                yak.age = yak.age + (day / 100);
-            });
-
+        return model.collect(day).then((data) => {
             return data.yaks;
         });
     };
