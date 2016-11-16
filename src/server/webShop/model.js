@@ -37,10 +37,7 @@ module.exports = ({ orders, yaks, logger }) => {
 
                 logger.info('Adding order');
 
-                console.log('*** stock ***', stock, order);
-
                 if (stock.milk >= order.data.milk && stock.skins >= order.data.skins) {
-
                     realisedOrder = {
                         complete: {
                             milk: order.data.milk,
@@ -48,25 +45,23 @@ module.exports = ({ orders, yaks, logger }) => {
                         }
                     }
 
-                    console.log('realisedOrder complete', realisedOrder);
-
                     newOrders.push({
                         customer: order.customer,
                         data: {
                             milk: realisedOrder.complete.milk,
                             skins: realisedOrder.complete.skins
                         }
-                    });                
-                } else {
-                    
+                    });
+
+                    orders.setOrders(newOrders);
+                    logger.info('Order completely added');
+                } else if (stock.milk >= order.data.milk || stock.skins >= order.data.skins) {
                     realisedOrder = {
                         partial: {
                             milk: stock.milk < order.data.milk ? stock.milk : order.data.milk,
                             skins: stock.skins < order.data.skins ? stock.skins : order.data.skins
                         }
                     }
-
-                    console.log('realisedOrder partial', realisedOrder);
 
                     newOrders.push({
                         customer: order.customer,
@@ -75,13 +70,20 @@ module.exports = ({ orders, yaks, logger }) => {
                             skins: realisedOrder.partial.skins
                         }
                     });
+
+                    orders.setOrders(newOrders);
+                    logger.info('Order partially added');
+                } else {
+                    realisedOrder = {
+                        none: {
+                            milk: 0,
+                            skins: 0
+                        }
+                    }
+                    logger.info('Order not added');
                 }
-                
-                orders.setOrders(newOrders);
-                logger.info('Order successfully added');
 
                 return realisedOrder;
-
             });
         });
     };
