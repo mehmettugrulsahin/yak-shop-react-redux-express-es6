@@ -6,6 +6,7 @@
     "test": "mocha --opts ./mocha.opts",
     "lint": "eslint src",
     "start:env": "env $(cat node.env) node src/main.js",
+    "start:hot": "npm run test && npm run lint && npm run start:env",
     "start:dev": "nodemon --exec \"npm run test && npm run lint && npm run start:env\"",
     "start": "npm run test && npm run lint && npm run start:env"
   },
