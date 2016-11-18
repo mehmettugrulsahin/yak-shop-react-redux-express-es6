@@ -9,8 +9,12 @@ module.exports = ({ serverConfig, addOrder }) => {
             if (realisedOrder.complete) {
                 res.status(httpResponses.created).json(realisedOrder.complete);
             }
-
-            res.status(httpResponses.partialContent).json(realisedOrder.partial);        
+            else if (realisedOrder.partial) {
+                res.status(httpResponses.partialContent).json(realisedOrder.partial);
+            }
+            else {
+                res.status(httpResponses.notFound).json(realisedOrder.none); 
+            }            
         });
     };
 };
